@@ -1,4 +1,4 @@
-package StoreController;
+package com.dmart.store.StoreController;
 
 public class Product {
     public long id;
