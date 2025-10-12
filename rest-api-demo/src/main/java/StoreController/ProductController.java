@@ -21,6 +21,7 @@ public class ProductController {
     // get all products list
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts(){
+
         return ResponseEntity.ok(productList); // 200 OK
     }
 
