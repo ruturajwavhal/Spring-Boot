@@ -53,9 +53,29 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(p);
     }
 
+    //Put - Update Student
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable long id, @RequestBody Product p ){
+        for (Product pr : productList){
+            if(pr.id == p.getId()){
+                pr.setName(p.getName());
+                pr.setPrice(p.getPrice());
+                pr.setStock(p.getStock());
+                return ResponseEntity.ok(p);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(p);
+    }
 
-
-
+    //delete - Remove student
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable long id){
+        boolean flag = productList.removeIf(p -> p.getId() == id);
+        if(flag)
+            return ResponseEntity.ok("id " + id + " is deleted.");
+        else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
+    }
 
 
 }
