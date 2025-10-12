@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
         @GetMapping("/hello/{name}")
         public String sayHelloToName(@PathVariable String name) {
-            return "Hello, " + name + " ! ";
+            return "Hello, " + name + " !";
         }
 
     }
