@@ -1,7 +1,7 @@
-package com.vednexgen.task_management.services;
+package com.vednexgen.taskmanagement.services;
 
-import com.vednexgen.task_management.entity.Task;
-import com.vednexgen.task_management.repository.TaskRepository;
+import com.vednexgen.taskmanagement.entity.Task;
+import com.vednexgen.taskmanagement.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +24,11 @@ public class TaskServices {
         return taskRepository.findByTitle(title);
     }
 
+    public void deleteById(long id){
+        taskRepository.deleteById(id);
+    }
+
+    public Task findById(long id){
+        return taskRepository.findById(id);
+    }
 }

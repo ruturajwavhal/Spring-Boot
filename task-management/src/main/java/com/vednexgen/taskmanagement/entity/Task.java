@@ -1,17 +1,24 @@
-package com.vednexgen.task_management.entity;
-
+package com.vednexgen.taskmanagement.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+
+
 
 @Entity
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @NotNull(message = "Title cannot be null")
     private String title;
+
+    @NotNull(message = "Discription cannot be null")
     private String discription;
+
     private boolean completed;
 
     public long getId() {

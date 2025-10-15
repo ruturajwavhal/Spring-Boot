@@ -1,4 +1,4 @@
-package com.vednexgen.task_management;
+package com.vednexgen.taskmanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
