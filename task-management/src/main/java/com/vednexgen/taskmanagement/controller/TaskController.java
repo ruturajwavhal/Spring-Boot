@@ -47,14 +47,18 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteTask(@PathVariable long id){
+    public String deleteTask(@PathVariable long id) throws Exception{
         Task task = taskServices.findById(id);
-        @NotNull(message = "Id is not present in Database")
-        String title = task.getTitle();
-        if(!title.isEmpty())
+        //@NotNull(message = "Id is not present in Database")
+
+        //String title = task.getTitle();
+        if(task != null)
         {
             taskServices.deleteById(id);
 
+        }
+        else{
+            throw new Exception("ID not present");
         }
         return "Task "+ id +" is Deleted...";
 
