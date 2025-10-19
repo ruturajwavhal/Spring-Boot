@@ -4,10 +4,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
-
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
+
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +21,8 @@ public class Task {
     @NotNull(message = "Discription cannot be null")
     private String discription;
 
+    @NotNull(message = "Task name cannot be null")
+    private String taskName;
     private boolean completed;
 
     public long getId() {
@@ -33,24 +37,11 @@ public class Task {
         return discription;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDiscription(String discription) {
-        this.discription = discription;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
+    public String getTaskName() {
+        return taskName;
     }
 
     public boolean isCompleted() {
         return completed;
     }
-
 }
